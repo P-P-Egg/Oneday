@@ -8,7 +8,7 @@ using UnityEngine.EventSystems;
 
 public class guan_li : MonoBehaviour {
 
-    private Text lin_shi_t;
+    //private Text lin_shi_t;
     //public int a;
     //public int b;
 
@@ -18,7 +18,7 @@ public class guan_li : MonoBehaviour {
 
     // Use this for initialization
     void Start() {
-        lin_shi_t = GameObject.Find("jl_Text").GetComponent<Text>();
+        //lin_shi_t = GameObject.Find("jl_Text").GetComponent<Text>();
         //zhu_jue_pz zj = new zhu_jue_pz();
 
         //int a = PlayerPrefs.GetInt("juli", 0);
