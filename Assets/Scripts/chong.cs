@@ -24,5 +24,17 @@ public class chong : MonoBehaviour {
     {
         SceneManager.LoadScene("jie_mian");
     }
+
+    public void zan_ting() //暂停游戏
+    {
+        if(Time.timeScale == 0)
+        {
+            Time.timeScale = 1f;
+        }
+        else
+        {
+            Time.timeScale = 0;
+        }
+    }
 }
 
