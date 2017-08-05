@@ -188,7 +188,7 @@ public class zhu_jue_pz : MonoBehaviour {
                 if(ji_shi1 >= 1)
                 {
                     AudioSource.PlayClipAtPoint(an_jian, transform.position);
-                    rigidbody2D.AddForce(shu_biao2 * timer * 200f);
+                    rigidbody2D.AddForce(shu_biao2 * timer * 230f);
                     ji_shi1 = 0;
                 }
                 //kong_zhong = timer / 5f; //10的力会在空中停留2秒，所以空中停留时间与力的比例是1比5
