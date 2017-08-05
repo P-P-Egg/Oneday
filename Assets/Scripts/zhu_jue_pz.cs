@@ -158,7 +158,7 @@ public class zhu_jue_pz : MonoBehaviour {
 
     void qian_jing()//推动主角前进的力
     {
-        rigidbody2D.AddForce(new Vector2(1, 0));
+        rigidbody2D.AddForce(new Vector2(-1, 0));//修改成负数了 20170805
     }
     
     void xu_li()//弹跳蓄力
@@ -207,9 +207,9 @@ public class zhu_jue_pz : MonoBehaviour {
     {
         qian_jing();
         Vector2 velocity = rigidbody2D.velocity;
-        if (velocity.x >= 0.1)
+        if (velocity.x >= 0.1 || velocity.x <= 0.1)
         {
-            velocity.x = 1f * su_du;
+            velocity.x = -1f * su_du;
             rigidbody2D.velocity = velocity;
         }
         //Debug.Log(velocity.x);

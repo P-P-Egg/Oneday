@@ -18,7 +18,7 @@ public class guan_li : MonoBehaviour {
 
     // Use this for initialization
     void Start() {
-        //lin_shi_t = GameObject.Find("jl_Text").GetComponent<Text>();
+    
         //zhu_jue_pz zj = new zhu_jue_pz();
 
         //int a = PlayerPrefs.GetInt("juli", 0);
