@@ -158,7 +158,7 @@ public class zhu_jue_pz : MonoBehaviour {
 
     void qian_jing()//推动主角前进的力
     {
-        rigidbody2D.AddForce(new Vector2(-1, 0));//修改成负数了 20170805
+        rigidbody2D.AddForce(new Vector2(1, 0));//修改成负数了 20170805 我又改正数了
     }
     
     void xu_li()//弹跳蓄力
@@ -188,7 +188,7 @@ public class zhu_jue_pz : MonoBehaviour {
                 if(ji_shi1 >= 1)
                 {
                     AudioSource.PlayClipAtPoint(an_jian, transform.position);
-                    rigidbody2D.AddForce(shu_biao2 * timer * 230f);
+                    rigidbody2D.AddForce(shu_biao2 * timer * 200f);
                     ji_shi1 = 0;
                 }
                 //kong_zhong = timer / 5f; //10的力会在空中停留2秒，所以空中停留时间与力的比例是1比5
@@ -207,9 +207,9 @@ public class zhu_jue_pz : MonoBehaviour {
     {
         qian_jing();
         Vector2 velocity = rigidbody2D.velocity;
-        if (velocity.x >= 0.1 || velocity.x <= 0.1)
+        if (velocity.x >= 0.1)
         {
-            velocity.x = -1f * su_du;
+            velocity.x = 1f * su_du;
             rigidbody2D.velocity = velocity;
         }
         //Debug.Log(velocity.x);
