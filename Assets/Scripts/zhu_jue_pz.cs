@@ -38,6 +38,7 @@ public class zhu_jue_pz : MonoBehaviour {
     
     private Image jieshu_image;//游戏结束的image
     private Button chong_button;//重置的按钮
+    private Button zan_ting;//暂停按钮
     private Button cai_dan;//菜单按钮
     private Animator dong_hua;//动画
 
@@ -60,7 +61,9 @@ public class zhu_jue_pz : MonoBehaviour {
     void Start () {
         lu_text = GameObject.Find("lu_Text").GetComponent<Text>();
         jieshu_text = GameObject.Find("jieshu_Text").GetComponent<Text>();
-        
+
+        zan_ting = GameObject.Find("zanting_Button").GetComponent<Button>();
+
         jieshu_image = GameObject.Find("jieshu_Image").GetComponent<Image>();
         jieshu_image.gameObject.SetActive(false);
 
@@ -165,7 +168,7 @@ public class zhu_jue_pz : MonoBehaviour {
     {
         if (Input.GetMouseButton(0))//蓄力，任何时候都可以蓄力
         {
-            ji_shi();
+            ji_shi();   
         }
         //if (Input.GetKey("o"))
         //{
