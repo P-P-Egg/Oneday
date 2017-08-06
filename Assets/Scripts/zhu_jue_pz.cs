@@ -4,6 +4,7 @@ using UnityEngine;
 using System;
 using System.Threading;
 using UnityEngine.UI;
+using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
 using System.Collections;
 
@@ -168,7 +169,9 @@ public class zhu_jue_pz : MonoBehaviour {
     {
         if (Input.GetMouseButton(0))//蓄力，任何时候都可以蓄力
         {
-            ji_shi();   
+
+           ji_shi();
+
         }
         //if (Input.GetKey("o"))
         //{

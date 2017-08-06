@@ -11,28 +11,30 @@ public class chong : MonoBehaviour {
     int Ui_layer;
     // Use this for initialization
     void Start () {
+        
         Ui_layer = LayerMask.GetMask("UI");
-    }
-	
-	// Update is called once per frame
-	void Update () {
-        if (Input.GetMouseButton(0))
-        {
-            if (EventSystem.current.IsPointerOverGameObject())
-            {
-                Debug.Log("当前触摸在UI上");
-            }  
-            //Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-            //RaycastHit hit;
-            //if (Physics.Raycast(ray, out hit))
-            //{
-            //    Debug.Log(1);
-            //}
-               
-        }
-
 
     }
+
+    // Update is called once per frame
+    void Update()
+    {
+
+        //if (Input.GetMouseButton(0))
+        //{
+        //    if (EventSystem.current.IsPointerOverGameObject())
+        //    {
+        //        if (EventSystem.current.currentSelectedGameObject.name == "zanting_Button")
+        //        {
+        //            zan_ting();
+        //        }
+        //    }
+        //}
+    }
+        
+            
+
+        
 
     public void chong_zhi()//开始游戏，重新开始游戏
     {
@@ -56,27 +58,6 @@ public class chong : MonoBehaviour {
         }
     }
 
-    void OnMouseDow()
-    {
-        Debug.Log(1);
-        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-        RaycastHit hit;
-        if(Physics.Raycast(ray, out hit))
-        {
-            Debug.Log(hit.transform.gameObject); 
 
-            //zan_tingUI = hit.collider.gameObject;
-            //if(zan_tingUI.name == "zhu_jue")
-            //{
-            //    zan_ting();
-            //}
-
-        }
-
-
-
-
-
-    }
 }
 
