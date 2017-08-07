@@ -4,6 +4,7 @@ using UnityEngine;
 using System;
 using System.Threading;
 using UnityEngine.UI;
+using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
 using System.Collections;
 
@@ -163,9 +164,17 @@ public class zhu_jue_pz : MonoBehaviour {
     
     void xu_li()//弹跳蓄力
     {
-        if (Input.GetMouseButton(0))//蓄力，任何时候都可以蓄力
+        if (Input.GetMouseButton(0) )//蓄力，任何时候都可以蓄力
         {
-            ji_shi();
+            //Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+            //RaycastHit hit;
+            //if(Physics.Raycast(ray, out hit))
+            //{
+                //if (hit.transform.tag == "zan_ting")
+                //{
+                     ji_shi();
+                //}
+            //}
         }
         //if (Input.GetKey("o"))
         //{
@@ -187,17 +196,20 @@ public class zhu_jue_pz : MonoBehaviour {
                 ji_shi1 += Time.time;
                 if(ji_shi1 >= 1)
                 {
+
                     AudioSource.PlayClipAtPoint(an_jian, transform.position);
                     rigidbody2D.AddForce(shu_biao2 * timer * 200f);
                     ji_shi1 = 0;
                 }
+                        
+            }
                 //kong_zhong = timer / 5f; //10的力会在空中停留2秒，所以空中停留时间与力的比例是1比5
                 //dong_hua.speed = 1.083f / kong_zhong;
                 //if (timer > 2)
                 //{
                 //    dong_hua.SetTrigger("tiao_qi");
                 //}
-            }
+        
             timer = 1;
             //zhen_jia = 0;
         }  
