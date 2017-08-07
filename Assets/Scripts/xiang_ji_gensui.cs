@@ -18,7 +18,7 @@ public class xiang_ji_gensui : MonoBehaviour
     {
         Screen.SetResolution(1334, 750, true);
         pian_yi = transform.position - zhu_jue.position;
-
+        SaveData.load();
     }
 
     // Update is called once per frame

@@ -22,7 +22,7 @@ public static class SaveData{
             }
         }
     }
-    static void save()
+    public static void save()
     {
         data = new int[Distance.Count];
         int i = 0;
