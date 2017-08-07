@@ -40,6 +40,7 @@ public class chong : MonoBehaviour {
 
     public void chong_zhi()//开始游戏，重新开始游戏
     {
+        SaveData.New();
         SceneManager.LoadScene("Main");
     }
 

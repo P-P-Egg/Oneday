@@ -30,8 +30,7 @@ public class zhu_jue_pz : MonoBehaviour {
 
     private float xu = 100;
     private float li = 100;
-
-    public int ju_li;
+    
     public int ju_li2;
 
     private Text lu_text;//判断距离的text
@@ -111,9 +110,9 @@ public class zhu_jue_pz : MonoBehaviour {
     {
         zhu_jue_wz = transform.position;//即时得到了主角的位置
         //Debug.Log(zhu_jue_wz);
-        ju_li = Convert.ToInt32(zhu_jue_wz.x + 24f);
+        SaveData.CurrentScore = Convert.ToInt32(zhu_jue_wz.x + 24f);
         ju_li2 = Convert.ToInt32(zhu_jue_wz.x + 24f);
-        lu_text.text = ju_li + " m";
+        lu_text.text = SaveData.CurrentScore + " m";
 
         if (jin_yong == true && qian_xing == 1)
         {
@@ -261,7 +260,7 @@ public class zhu_jue_pz : MonoBehaviour {
 
                 jieshu_image.gameObject.SetActive(true);
                 rigidbody2D.velocity = new Vector2(0, 0);
-                jieshu_text.text = "Game over, moved " + ju_li + " m";
+                jieshu_text.text = "Game over, moved " + SaveData.CurrentScore + " m";
 
                 //int go = ju_li;
                 //PlayerPrefs.SetInt("juli", go);
