@@ -75,6 +75,7 @@ public class zhu_jue_pz : MonoBehaviour {
         cai_dan.gameObject.SetActive(false);
         dong_hua = GetComponent<Animator>();
 
+        
 
     }
 
@@ -90,8 +91,13 @@ public class zhu_jue_pz : MonoBehaviour {
         si_wang();
 
         xu_li();
-        tiao();
 
+        chong c = new chong();
+        if (c.zanting_pd == true)
+        {
+            tiao();
+        }
+        
         jian_tou_zhixiang();
     }
 
@@ -169,21 +175,21 @@ public class zhu_jue_pz : MonoBehaviour {
     {
         if (Input.GetMouseButton(0) )//蓄力，任何时候都可以蓄力
         {
-<<<<<<< HEAD
+
             //Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
             //RaycastHit hit;
             //if(Physics.Raycast(ray, out hit))
             //{
                 //if (hit.transform.tag == "zan_ting")
                 //{
-                     ji_shi();
+                     //ji_shi();
                 //}
             //}
-=======
+
 
            ji_shi();
 
->>>>>>> d3cd1931586d43e3283fc2c87dc937b06ed41aad
+
         }
         //if (Input.GetKey("o"))
         //{
