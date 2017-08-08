@@ -98,13 +98,7 @@ public class zhu_jue_pz : MonoBehaviour {
         cai_dan = GameObject.Find("caidan_Button").GetComponent<Button>();
         cai_dan.gameObject.SetActive(false);
         dong_hua = GetComponent<Animator>();
-<<<<<<< HEAD
-        
-=======
 
-        
-
->>>>>>> 1b819321105982e3f794072b596af8d54dbfdc3b
     }
 
     // Update is called once per frame
@@ -287,17 +281,13 @@ public class zhu_jue_pz : MonoBehaviour {
 
                 jieshu_image.gameObject.SetActive(true);
                 rigidbody2D.velocity = new Vector2(0, 0);
-<<<<<<< HEAD
-                jieshu_text.text = "Game over, moved " + ju_li + " m";
+                jieshu_text.text = "Game over, moved " + ju_li2 + " m";
                 paihangbangshuju();
                 cundang();
                 Debug.Log(a1.fenshu1);
                 Debug.Log(a1.fenshu2);
                 Debug.Log(a1.fenshu3);
-=======
                 jieshu_text.text = "Game over, moved " + SaveData.CurrentScore + " m";
-
->>>>>>> 1b819321105982e3f794072b596af8d54dbfdc3b
                 //int go = ju_li;
                 //PlayerPrefs.SetInt("juli", go);
                 chong_button.gameObject.SetActive(true);
@@ -337,21 +327,21 @@ public class zhu_jue_pz : MonoBehaviour {
     }
     public void paihangbangshuju()//排行榜
     {
-        if (ju_li > a1.fenshu1)
+        if (ju_li2 > a1.fenshu1)
         { 
             a1.fenshu3 = a1.fenshu2;
             a1.fenshu2 = a1.fenshu1;
-            a1.fenshu1 = ju_li;
+            a1.fenshu1 = ju_li2;
 
         }
-        else if (ju_li > a1.fenshu2 && ju_li <= a1.fenshu1)
+        else if (ju_li2 > a1.fenshu2 && ju_li2 <= a1.fenshu1)
         {
             a1.fenshu3 = a1.fenshu2;
-            a1.fenshu2 = ju_li;
+            a1.fenshu2 = ju_li2;
         }
-        else if (ju_li > a1.fenshu3 && ju_li <= a1.fenshu2)
+        else if (ju_li2 > a1.fenshu3 && ju_li2 <= a1.fenshu2)
         {
-            a1.fenshu3 = ju_li;
+            a1.fenshu3 = ju_li2;
         }
     }
     public void cundang()

@@ -18,10 +18,6 @@ public class guan_li : MonoBehaviour {
 
     // Use this for initialization
     void Start() {
-        TestSave ts = new TestSave();
-        pai_hang = GameObject.Find("paihang_Text").GetComponent<Text>();
-
-
 
 
         //zhu_jue_pz zj = new zhu_jue_pz();
