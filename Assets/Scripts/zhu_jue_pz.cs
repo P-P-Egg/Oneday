@@ -37,7 +37,6 @@ public class zhu_jue_pz : MonoBehaviour {
     public float su_lv = 1;
     public int zhen_jia = 1;
     public int qian_xing = 1;
-
     public bool a = false;
 
     public float linshi_jishi = 0;
@@ -282,17 +281,13 @@ public class zhu_jue_pz : MonoBehaviour {
 
                 jieshu_image.gameObject.SetActive(true);
                 rigidbody2D.velocity = new Vector2(0, 0);
-
                 jieshu_text.text = "Game over, moved " + ju_li2 + " m";
                 paihangbangshuju();
                 cundang();
                 Debug.Log(a1.fenshu1);
                 Debug.Log(a1.fenshu2);
                 Debug.Log(a1.fenshu3);
-
                 jieshu_text.text = "Game over, moved " + SaveData.CurrentScore + " m";
-
-
                 //int go = ju_li;
                 //PlayerPrefs.SetInt("juli", go);
                 chong_button.gameObject.SetActive(true);

@@ -12,20 +12,12 @@ public class guan_li : MonoBehaviour {
     //public int a;
     //public int b;
 
-    private Text pai_hang1;
+    private Text pai_hang;
     //public int yi_ci = 1;
     //public AudioClip an_jian;
 
     // Use this for initialization
     void Start() {
-        zhu_jue_pz ts = new zhu_jue_pz();
-
-        pai_hang1 = GameObject.Find("paihang_Text").GetComponent<Text>();
-
-        pai_hang1.text = ts.a1.fenshu1.ToString();
-;
-
-
 
 
         //zhu_jue_pz zj = new zhu_jue_pz();
