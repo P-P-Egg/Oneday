@@ -12,13 +12,18 @@ public class guan_li : MonoBehaviour {
     //public int a;
     //public int b;
 
-
+    private Text pai_hang;
     //public int yi_ci = 1;
     //public AudioClip an_jian;
 
     // Use this for initialization
     void Start() {
-    
+        TestSave ts = new TestSave();
+        pai_hang = GameObject.Find("paihang_Text").GetComponent<Text>();
+
+
+
+
         //zhu_jue_pz zj = new zhu_jue_pz();
 
         //int a = PlayerPrefs.GetInt("juli", 0);

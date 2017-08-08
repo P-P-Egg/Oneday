@@ -10,7 +10,7 @@ public class chong : MonoBehaviour {
     GameObject zan_tingUI;
     int Ui_layer;
 
-    public bool zanting_pd = true;//完善暂停按钮
+    /*public bool zanting_pd = true;*///完善暂停按钮
     // Use this for initialization
     void Start () {
         

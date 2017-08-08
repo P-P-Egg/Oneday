@@ -91,11 +91,9 @@ public class zhu_jue_pz : MonoBehaviour {
 
         xu_li();
 
-        chong c = new chong();
-        if (c.zanting_pd == true)
-        {
-            tiao();
-        }
+
+        tiao();
+
         
         jian_tou_zhixiang();
     }

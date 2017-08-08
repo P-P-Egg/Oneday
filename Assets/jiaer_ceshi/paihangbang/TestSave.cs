@@ -5,6 +5,7 @@ using System.Collections.Generic;
 public class TestSave : MonoBehaviour
 {
 
+    public int a;
 
     /// <summary>
     /// 定义一个测试类
@@ -40,6 +41,11 @@ public class TestSave : MonoBehaviour
         Debug.Log(t1.Name);
         Debug.Log(t1.Age);
         Debug.Log(t1.Ints);
+
+
+
+
+
     }
 
 
