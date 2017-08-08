@@ -37,6 +37,7 @@ public class zhu_jue_pz : MonoBehaviour {
     public float su_lv = 1;
     public int zhen_jia = 1;
     public int qian_xing = 1;
+
     public bool a = false;
 
     public float linshi_jishi = 0;
@@ -72,8 +73,6 @@ public class zhu_jue_pz : MonoBehaviour {
     private float ji_shi1 = 0;
     private int yi_ci = 1;
     private static int[] paihang=new int[] { 0, 0, 0 };//排行榜的个数
-    private static string dirpath =  "/Save";
-    private static string filename = dirpath + "/GameData.sav";
     public paihang a1 = new paihang();
     // Use this for initialization
 
@@ -131,10 +130,8 @@ public class zhu_jue_pz : MonoBehaviour {
     {
         zhu_jue_wz = transform.position;//即时得到了主角的位置
         //Debug.Log(zhu_jue_wz);
-        SaveData.CurrentScore = Convert.ToInt32(zhu_jue_wz.x + 24f);
         ju_li2 = Convert.ToInt32(zhu_jue_wz.x + 24f);
-        lu_text.text = SaveData.CurrentScore + " m";
-
+        lu_text.text = ju_li2 + " m";
         if (jin_yong == true && qian_xing == 1)
         {
             bao_chi();
@@ -287,7 +284,6 @@ public class zhu_jue_pz : MonoBehaviour {
                 Debug.Log(a1.fenshu1);
                 Debug.Log(a1.fenshu2);
                 Debug.Log(a1.fenshu3);
-                jieshu_text.text = "Game over, moved " + SaveData.CurrentScore + " m";
                 //int go = ju_li;
                 //PlayerPrefs.SetInt("juli", go);
                 chong_button.gameObject.SetActive(true);
@@ -346,13 +342,13 @@ public class zhu_jue_pz : MonoBehaviour {
     }
     public void cundang()
     {
-        IOHelper.CreateDirectory(dirpath);
-        IOHelper.SetData(filename, a1);
+        IOHelper.CreateDirectory(Application.persistentDataPath + "/Save");
+        IOHelper.SetData(Application.persistentDataPath + "/Save" + "/GameData.sav", a1);
     }
 
     public void dudang()
     {
-        if (!IOHelper.IsFileExists(filename))
+        if (!IOHelper.IsFileExists(Application.persistentDataPath + "/Save" + "/GameData.sav"))
         {
             a1.fenshu1 = 0;
             a1.fenshu2 = 0;
@@ -360,7 +356,7 @@ public class zhu_jue_pz : MonoBehaviour {
         }
         else
         {
-            a1= (paihang)IOHelper.GetData(filename, typeof(paihang));
+            a1= (paihang)IOHelper.GetData(Application.persistentDataPath + "/Save" + "/GameData.sav", typeof(paihang));
         }
     }
     

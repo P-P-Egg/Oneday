@@ -3,7 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
-using UnityEngine.EventSystems; 
+using UnityEngine.EventSystems;
+using UnityEngine.SceneManagement;
 
 
 public class guan_li : MonoBehaviour {
@@ -12,13 +13,11 @@ public class guan_li : MonoBehaviour {
     //public int a;
     //public int b;
 
-    private Text pai_hang;
     //public int yi_ci = 1;
     //public AudioClip an_jian;
 
     // Use this for initialization
     void Start() {
-
 
         //zhu_jue_pz zj = new zhu_jue_pz();
 
@@ -42,9 +41,7 @@ public class guan_li : MonoBehaviour {
 
     public void OnNewGame()
     {
-        SaveData.New();
-        Application.LoadLevel("Main");
-
+        SceneManager.LoadScene("Main");
     }
 
     public void OnQuit()
@@ -54,12 +51,12 @@ public class guan_li : MonoBehaviour {
 
     public void OnTop10()
     {
-        Application.LoadLevel("Top10");
+        SceneManager.LoadScene("Top10");
     }
 
     public void OnCredits()
     {
-        Application.LoadLevel("zhi_zuo");
+        SceneManager.LoadScene("zhi_zuo");
     }
 
 
