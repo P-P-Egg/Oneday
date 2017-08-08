@@ -4,6 +4,7 @@ using UnityEngine;
 using System;
 using System.Threading;
 using UnityEngine.UI;
+using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
 using System.Collections;
 
@@ -45,8 +46,7 @@ public class zhu_jue_pz : MonoBehaviour {
 
     private float xu = 100;
     private float li = 100;
-
-    public int ju_li;
+    
     public int ju_li2;
 
     private Text lu_text;//判断距离的text
@@ -54,6 +54,7 @@ public class zhu_jue_pz : MonoBehaviour {
     
     private Image jieshu_image;//游戏结束的image
     private Button chong_button;//重置的按钮
+    private Button zan_ting;//暂停按钮
     private Button cai_dan;//菜单按钮
     private Animator dong_hua;//动画
 
@@ -85,7 +86,9 @@ public class zhu_jue_pz : MonoBehaviour {
         
         lu_text = GameObject.Find("lu_Text").GetComponent<Text>();
         jieshu_text = GameObject.Find("jieshu_Text").GetComponent<Text>();
-        
+
+        zan_ting = GameObject.Find("zanting_Button").GetComponent<Button>();
+
         jieshu_image = GameObject.Find("jieshu_Image").GetComponent<Image>();
         jieshu_image.gameObject.SetActive(false);
 
@@ -95,7 +98,13 @@ public class zhu_jue_pz : MonoBehaviour {
         cai_dan = GameObject.Find("caidan_Button").GetComponent<Button>();
         cai_dan.gameObject.SetActive(false);
         dong_hua = GetComponent<Animator>();
+<<<<<<< HEAD
         
+=======
+
+        
+
+>>>>>>> 1b819321105982e3f794072b596af8d54dbfdc3b
     }
 
     // Update is called once per frame
@@ -110,8 +119,13 @@ public class zhu_jue_pz : MonoBehaviour {
         si_wang();
 
         xu_li();
-        tiao();
 
+        chong c = new chong();
+        if (c.zanting_pd == true)
+        {
+            tiao();
+        }
+        
         jian_tou_zhixiang();
     }
 
@@ -125,9 +139,9 @@ public class zhu_jue_pz : MonoBehaviour {
     {
         zhu_jue_wz = transform.position;//即时得到了主角的位置
         //Debug.Log(zhu_jue_wz);
-        ju_li = Convert.ToInt32(zhu_jue_wz.x + 24f);
+        SaveData.CurrentScore = Convert.ToInt32(zhu_jue_wz.x + 24f);
         ju_li2 = Convert.ToInt32(zhu_jue_wz.x + 24f);
-        lu_text.text = ju_li + " m";
+        lu_text.text = SaveData.CurrentScore + " m";
 
         if (jin_yong == true && qian_xing == 1)
         {
@@ -187,9 +201,23 @@ public class zhu_jue_pz : MonoBehaviour {
     
     void xu_li()//弹跳蓄力
     {
-        if (Input.GetMouseButton(0))//蓄力，任何时候都可以蓄力
+        if (Input.GetMouseButton(0) )//蓄力，任何时候都可以蓄力
         {
-            ji_shi();
+
+            //Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+            //RaycastHit hit;
+            //if(Physics.Raycast(ray, out hit))
+            //{
+                //if (hit.transform.tag == "zan_ting")
+                //{
+                     //ji_shi();
+                //}
+            //}
+
+
+           ji_shi();
+
+
         }
         //if (Input.GetKey("o"))
         //{
@@ -211,17 +239,20 @@ public class zhu_jue_pz : MonoBehaviour {
                 ji_shi1 += Time.time;
                 if(ji_shi1 >= 1)
                 {
+
                     AudioSource.PlayClipAtPoint(an_jian, transform.position);
                     rigidbody2D.AddForce(shu_biao2 * timer * 200f);
                     ji_shi1 = 0;
                 }
+                        
+            }
                 //kong_zhong = timer / 5f; //10的力会在空中停留2秒，所以空中停留时间与力的比例是1比5
                 //dong_hua.speed = 1.083f / kong_zhong;
                 //if (timer > 2)
                 //{
                 //    dong_hua.SetTrigger("tiao_qi");
                 //}
-            }
+        
             timer = 1;
             //zhen_jia = 0;
         }  
@@ -258,12 +289,17 @@ public class zhu_jue_pz : MonoBehaviour {
 
                 jieshu_image.gameObject.SetActive(true);
                 rigidbody2D.velocity = new Vector2(0, 0);
+<<<<<<< HEAD
                 jieshu_text.text = "Game over, moved " + ju_li + " m";
                 paihangbangshuju();
                 cundang();
                 Debug.Log(a1.fenshu1);
                 Debug.Log(a1.fenshu2);
                 Debug.Log(a1.fenshu3);
+=======
+                jieshu_text.text = "Game over, moved " + SaveData.CurrentScore + " m";
+
+>>>>>>> 1b819321105982e3f794072b596af8d54dbfdc3b
                 //int go = ju_li;
                 //PlayerPrefs.SetInt("juli", go);
                 chong_button.gameObject.SetActive(true);

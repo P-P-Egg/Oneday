@@ -41,7 +41,9 @@ public class guan_li : MonoBehaviour {
 
     public void OnNewGame()
     {
+        SaveData.New();
         Application.LoadLevel("Main");
+
     }
 
     public void OnQuit()
