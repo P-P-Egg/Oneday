@@ -8,6 +8,22 @@ using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
 using System.Collections;
 
+
+public class paihang
+{
+    public int fenshu1;
+    public int fenshu2;
+    public int fenshu3;
+    public List<int> Ints = new List<int>()
+        {
+            1,
+            2,
+            3
+        };
+}
+
+
+
 public class zhu_jue_pz : MonoBehaviour {
 
     private Rigidbody2D rigidbody2D;
@@ -55,10 +71,19 @@ public class zhu_jue_pz : MonoBehaviour {
     public bool jin_yong = true;
     private float ji_shi1 = 0;
     private int yi_ci = 1;
-
+    private static int[] paihang=new int[] { 0, 0, 0 };//排行榜的个数
+    private static string dirpath =  "/Save";
+    private static string filename = dirpath + "/GameData.sav";
+    public paihang a1 = new paihang();
     // Use this for initialization
 
+    private void Awake()
+    {
+        dudang();        
+    }
+
     void Start () {
+        
         lu_text = GameObject.Find("lu_Text").GetComponent<Text>();
         jieshu_text = GameObject.Find("jieshu_Text").GetComponent<Text>();
 
@@ -73,9 +98,13 @@ public class zhu_jue_pz : MonoBehaviour {
         cai_dan = GameObject.Find("caidan_Button").GetComponent<Button>();
         cai_dan.gameObject.SetActive(false);
         dong_hua = GetComponent<Animator>();
+<<<<<<< HEAD
+        
+=======
 
         
 
+>>>>>>> 1b819321105982e3f794072b596af8d54dbfdc3b
     }
 
     // Update is called once per frame
@@ -258,11 +287,19 @@ public class zhu_jue_pz : MonoBehaviour {
 
                 jieshu_image.gameObject.SetActive(true);
                 rigidbody2D.velocity = new Vector2(0, 0);
+<<<<<<< HEAD
+                jieshu_text.text = "Game over, moved " + ju_li + " m";
+                paihangbangshuju();
+                cundang();
+                Debug.Log(a1.fenshu1);
+                Debug.Log(a1.fenshu2);
+                Debug.Log(a1.fenshu3);
+=======
                 jieshu_text.text = "Game over, moved " + SaveData.CurrentScore + " m";
 
+>>>>>>> 1b819321105982e3f794072b596af8d54dbfdc3b
                 //int go = ju_li;
                 //PlayerPrefs.SetInt("juli", go);
-
                 chong_button.gameObject.SetActive(true);
                 cai_dan.gameObject.SetActive(true);
                 yi_ci = 0;
@@ -298,6 +335,45 @@ public class zhu_jue_pz : MonoBehaviour {
 
 
     }
+    public void paihangbangshuju()//排行榜
+    {
+        if (ju_li > a1.fenshu1)
+        { 
+            a1.fenshu3 = a1.fenshu2;
+            a1.fenshu2 = a1.fenshu1;
+            a1.fenshu1 = ju_li;
+
+        }
+        else if (ju_li > a1.fenshu2 && ju_li <= a1.fenshu1)
+        {
+            a1.fenshu3 = a1.fenshu2;
+            a1.fenshu2 = ju_li;
+        }
+        else if (ju_li > a1.fenshu3 && ju_li <= a1.fenshu2)
+        {
+            a1.fenshu3 = ju_li;
+        }
+    }
+    public void cundang()
+    {
+        IOHelper.CreateDirectory(dirpath);
+        IOHelper.SetData(filename, a1);
+    }
+
+    public void dudang()
+    {
+        if (!IOHelper.IsFileExists(filename))
+        {
+            a1.fenshu1 = 0;
+            a1.fenshu2 = 0;
+            a1.fenshu3 = 0;
+        }
+        else
+        {
+            a1= (paihang)IOHelper.GetData(filename, typeof(paihang));
+        }
+    }
+    
 
     //public void jishi()
     //{
