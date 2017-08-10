@@ -27,7 +27,7 @@ public class paihang
 public class zhu_jue_pz : MonoBehaviour {
 
     private Rigidbody2D rigidbody2D;
-    public float su_du = 1; //调整保持速度
+    public float su_du = 2f; //调整保持速度
 
     public AudioClip an_jian;//跳起和按键音效
     public AudioClip peng_zhuang;
@@ -109,6 +109,8 @@ public class zhu_jue_pz : MonoBehaviour {
             qian_xing = 0;
         }
 
+
+
         si_wang();
 
         xu_li();
@@ -135,6 +137,25 @@ public class zhu_jue_pz : MonoBehaviour {
         if (jin_yong == true && qian_xing == 1)
         {
             bao_chi();
+        }
+
+
+        //根据移动的距离提高主角移动速度
+        if(ju_li2 >= 200)
+        {
+            su_du = 2.5f;
+        }
+        else if(ju_li2 >= 400)
+        {
+            su_du = 3f;
+        }
+        else if(ju_li2 >= 600)
+        {
+            su_du = 3.5f;
+        }
+        else if(ju_li2 >= 800)
+        {
+            su_du = 4f;
         }
 
         

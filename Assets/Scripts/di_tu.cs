@@ -96,7 +96,7 @@ public class di_tu : MonoBehaviour
         //随机取得一个位置
         //路的大小最大，10米，9米，8米，7米，6米，5米，最小间隔18（3米——11米）
         //并取得最新生成路的位置
-        float suji_wei = Random.Range(11f,21f);
+        float suji_wei = Random.Range(12f,21f);
         float suiji_y = Random.Range(-11.5f, 1f);
         xin_weizhi = new Vector3(suji_wei, 0, 0);//随机X轴增加的多少
         int x = lu.Count - 1;
