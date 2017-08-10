@@ -102,24 +102,24 @@ public class zhu_jue_pz : MonoBehaviour {
 
     // Update is called once per frame
     void Update () {
-        xu_li_slider.value = (timer * 10f) / xu;
+        //xu_li_slider.value = (timer * 10f) / xu;
 
-        if (Input.GetMouseButtonUp(0))
-        {
-            qian_xing = 0;
-        }
+        //if (Input.GetMouseButtonUp(0))
+        //{
+        //    qian_xing = 0;
+        //}
 
 
 
         si_wang();
 
-        xu_li();
+        //xu_li();
 
 
-        tiao();
+        //tiao();
 
         
-        jian_tou_zhixiang();
+        //jian_tou_zhixiang();
     }
 
     void LateUpdate()
@@ -134,31 +134,31 @@ public class zhu_jue_pz : MonoBehaviour {
         //Debug.Log(zhu_jue_wz);
         ju_li2 = Convert.ToInt32(zhu_jue_wz.x + 24f);
         lu_text.text = ju_li2 + " m";
-        if (jin_yong == true && qian_xing == 1)
-        {
-            bao_chi();
-        }
-
+        //if (jin_yong == true && qian_xing == 1)
+        //{
+        //    bao_chi();
+        //}
+        bao_chi();
 
         //根据移动的距离提高主角移动速度
-        if(ju_li2 >= 200)
-        {
-            su_du = 2.5f;
-        }
-        else if(ju_li2 >= 400)
-        {
-            su_du = 3f;
-        }
-        else if(ju_li2 >= 600)
-        {
-            su_du = 3.5f;
-        }
-        else if(ju_li2 >= 800)
-        {
-            su_du = 4f;
-        }
+        //if(ju_li2 >= 200)
+        //{
+        //    su_du = 2.5f;
+        //}
+        //else if(ju_li2 >= 400)
+        //{
+        //    su_du = 3f;
+        //}
+        //else if(ju_li2 >= 600)
+        //{
+        //    su_du = 3.5f;
+        //}
+        //else if(ju_li2 >= 800)
+        //{
+        //    su_du = 4f;
+        //}
 
-        
+
 
         //jishi();
 
