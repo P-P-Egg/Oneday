@@ -58,8 +58,6 @@ public class di_tu : MonoBehaviour
     void Start()
     {
         wei_zhi = road1.position;//第一个路的位置
-        
-
     }
 
     // Update is called once per frame
