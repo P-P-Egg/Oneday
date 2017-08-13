@@ -25,7 +25,7 @@ public class bei_hou1 : MonoBehaviour
     public List<GameObject> teng = new List<GameObject>();//藤曼
     public List<GameObject> shu = new List<GameObject>();//树
 
-    private Vector3 wei_zhi; //第一个路的位置
+    //private Vector3 wei_zhi; //第一个路的位置
     private Vector3 xin_weizhi;//新路的位置
     private Vector3 zhu_jue_wz;//主角位置
     private Vector3 chuang_lu;
@@ -56,7 +56,7 @@ public class bei_hou1 : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-        wei_zhi = road1.position;//第一个路的位置
+        //wei_zhi = road1.position;//第一个路的位置
 
 
     }
@@ -85,10 +85,10 @@ public class bei_hou1 : MonoBehaviour
         int sui_ji = Random.Range(0, 5);
         dao_lu = road[sui_ji];
         //只执行一次
-        Vector3 pos = new Vector3(0.3f, 0, 0);
+        Vector3 pos = new Vector3(-49.2f, -10.8f, 0);
         if (yi_ci == 1)
         {
-            GameObject go = GameObject.Instantiate(dao_lu, wei_zhi + pos, Quaternion.identity) as GameObject;
+            GameObject go = GameObject.Instantiate(dao_lu, /*wei_zhi + */pos, Quaternion.identity) as GameObject;
             lu.Add(go);
             yi_ci = 0;
         }
