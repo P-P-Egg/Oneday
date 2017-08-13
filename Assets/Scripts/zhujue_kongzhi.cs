@@ -12,7 +12,7 @@ public class zhujue_kongzhi : MonoBehaviour {
     {
         float force = forcestrength(begin, end);
         Vector3 fang = fangxiang(begin, end);
-        GetComponent<Rigidbody2D>().AddForce(fang * force);
+        GetComponent<Rigidbody>().AddForce(fang * force);
     }
 
     public Vector3 fangxiang(Vector3 a, Vector3 b)
