@@ -138,7 +138,7 @@ public class zhu_jue_pz : MonoBehaviour {
         //{
         //    bao_chi();
         //}
-        bao_chi();
+        //bao_chi();
 
         //根据移动的距离提高主角移动速度
         //if(ju_li2 >= 200)
