@@ -1,4 +1,4 @@
-﻿using System.Collections;
+﻿    using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -104,7 +104,7 @@ public class bei_hou1 : MonoBehaviour
         zui_xin.y = suiji_y;
 
         //随机生成一个路
-        if (lu.Count <= 10)
+        if (lu.Count <= 15)
         {
             xiao_lu = GameObject.Instantiate(dao_lu, zui_xin, Quaternion.identity) as GameObject;
             lu.Add(xiao_lu);
@@ -175,7 +175,7 @@ public class bei_hou1 : MonoBehaviour
         //后方距离主角太远的路会被删除
         if (lu[0] != null)
         {
-            if (zhu_jue_wz.x - lu[0].transform.position.x <= -50)
+            if (zhu_jue_wz.x - lu[0].transform.position.x <= -150)
             {
                 GameObject.Destroy(lu[0]);
                 lu.RemoveAt(0);
@@ -196,14 +196,14 @@ public class bei_hou1 : MonoBehaviour
         }
         int x = sky.Count - 1;
         sky_weizhi = sky[x].transform.position;
-        if (sky.Count <= 5)
+        if (sky.Count <= 8)
         {
             GameObject sky_1 = GameObject.Instantiate(sky_sz[0], new Vector3(-50, 0, 0) + sky_weizhi, Quaternion.identity) as GameObject;
             sky.Add(sky_1);
         }
         if (sky[0] != null)
         {
-            if (zhu_jue_wz.x - sky[0].transform.position.x <= -50)
+            if (zhu_jue_wz.x - sky[0].transform.position.x <= -150)
             {
                 GameObject.Destroy(sky[0]);
                 sky.RemoveAt(0);
@@ -222,14 +222,14 @@ public class bei_hou1 : MonoBehaviour
         }
         int x = qj_shan.Count - 1;
         qj_shan_wz = qj_shan[x].transform.position;
-        if (qj_shan.Count <= 5)
+        if (qj_shan.Count <= 10)
         {
             GameObject qj_shan1 = GameObject.Instantiate(qj_shan_sz[0], new Vector3(-38.48f, 0, 0) + qj_shan_wz, Quaternion.identity) as GameObject;
             qj_shan.Add(qj_shan1);
         }
         if (qj_shan[0] != null)
         {
-            if (zhu_jue_wz.x - qj_shan[0].transform.position.x <= -80)
+            if (zhu_jue_wz.x - qj_shan[0].transform.position.x <= -180)
             {
                 GameObject.Destroy(qj_shan[0]);
                 qj_shan.RemoveAt(0);
@@ -250,14 +250,14 @@ public class bei_hou1 : MonoBehaviour
         }
         int x = bj_shan.Count - 1;
         bj_shan_wz = bj_shan[x].transform.position;
-        if (bj_shan.Count <= 6)
+        if (bj_shan.Count <= 10)
         {
             GameObject bj_shan1 = GameObject.Instantiate(bj_shan_sz[0], new Vector3(suiji_x, 0, 0) + bj_shan_wz, Quaternion.identity) as GameObject;
             bj_shan.Add(bj_shan1);
         }
         if (bj_shan[0] != null)
         {
-            if (zhu_jue_wz.x - bj_shan[0].transform.position.x <= -50)
+            if (zhu_jue_wz.x - bj_shan[0].transform.position.x <= -150)
             {
                 GameObject.Destroy(bj_shan[0]);
                 bj_shan.RemoveAt(0);
@@ -277,14 +277,14 @@ public class bei_hou1 : MonoBehaviour
         int x = qj_shuye.Count - 1;
         qj_shuye_wz = qj_shuye[x].transform.position;
         float suiji_x = Random.Range(-33f, -35f);
-        if (qj_shuye.Count <= 6)
+        if (qj_shuye.Count <= 10)
         {
             GameObject sky_1 = GameObject.Instantiate(qj_shuye1[suiji_a], new Vector2(suiji_x, 0) + qj_shuye_wz, Quaternion.identity) as GameObject;
             qj_shuye.Add(sky_1);
         }
         if (qj_shuye[0] != null)
         {
-            if (zhu_jue_wz.x - qj_shuye[0].transform.position.x <= -50)
+            if (zhu_jue_wz.x - qj_shuye[0].transform.position.x <= -150)
             {
                 GameObject.Destroy(qj_shuye[0]);
                 qj_shuye.RemoveAt(0);
@@ -305,14 +305,14 @@ public class bei_hou1 : MonoBehaviour
         yun_wz = yun[x].transform.position;
         float suiji_x = Random.Range(-20f, -50f);
         float suiji_y = Random.Range(-3, 15);
-        if (yun.Count <= 7)
+        if (yun.Count <= 14)
         {
             GameObject sky_1 = GameObject.Instantiate(yun_sz[suiji_a], new Vector2(suiji_x + yun_wz.x, suiji_y), Quaternion.identity) as GameObject;
             yun.Add(sky_1);
         }
         if (yun[0] != null)
         {
-            if (zhu_jue_wz.x - yun[0].transform.position.x <= -50)
+            if (zhu_jue_wz.x - yun[0].transform.position.x <= -150)
             {
                 GameObject.Destroy(yun[0]);
                 yun.RemoveAt(0);
@@ -333,14 +333,14 @@ public class bei_hou1 : MonoBehaviour
         teng_wz = teng[x].transform.position;
         float suiji_x = Random.Range(-15f, -50f);
         float suiji_y = Random.Range(10.75f, 13.5f);
-        if (teng.Count <= 6)
+        if (teng.Count <= 12)
         {
             GameObject sky_1 = GameObject.Instantiate(teng_sz[suiji_a], new Vector3(suiji_x + teng_wz.x, suiji_y), Quaternion.identity) as GameObject;
             teng.Add(sky_1);
         }
         if (teng[0] != null)
         {
-            if (zhu_jue_wz.x - teng[0].transform.position.x <= -50)
+            if (zhu_jue_wz.x - teng[0].transform.position.x <= -150)
             {
                 GameObject.Destroy(teng[0]);
                 teng.RemoveAt(0);
@@ -358,7 +358,7 @@ public class bei_hou1 : MonoBehaviour
         //}
         if (shu[0] != null)
         {
-            if (zhu_jue_wz.x - shu[0].transform.position.x <= -50)
+            if (zhu_jue_wz.x - shu[0].transform.position.x <= -150)
             {
                 GameObject.Destroy(shu[0]);
                 shu.RemoveAt(0);
