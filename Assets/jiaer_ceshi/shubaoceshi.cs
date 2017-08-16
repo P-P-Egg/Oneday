@@ -64,8 +64,7 @@ public class shubaoceshi : MonoBehaviour
 
 
         if (Time.time <= endtime+0.1 )
-        {
-            
+        {            
             force1 = xiang_liang2 * speed * force;
             GetComponent<Rigidbody2D>().AddForce(force1);
         }
