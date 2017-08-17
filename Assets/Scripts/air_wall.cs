@@ -13,9 +13,12 @@ public class air_wall : MonoBehaviour {
     private Vector3 wall_left_wz; //墙位置
     private Vector3 wall_right_wz;
 
+
     private float wall_juli = 80;
 
     private bool wall_bool = true;
+    private bool wall_bool_left = true;
+    private bool wall_bool_right = true;
 
     void Start () {
 
@@ -26,28 +29,46 @@ public class air_wall : MonoBehaviour {
 	void Update () {
         //取得主角的位置
         zhu_jue_wz = zhu_jue.transform.position;
-        //取得墙位置
-        wall_left_wz = wall_left.transform.position;
-        wall_right_wz = wall_right.transform.position;
+        Debug.Log(zhu_jue_wz);
 
-        sheng_cheng();
+        //取得墙位置
+        wall_wz();
+
+        xiao_hui();
         wall_yidong();
     }
 
-    void sheng_cheng()//第一次生成墙壁，如果玩家选择往某一方向移动，那么会在反方向生成一个空气墙
+    void wall_wz()//取得墙位置
+    {
+        if(wall_bool_left == true)
+        {
+            wall_left_wz = wall_left.transform.position;
+            Debug.Log(wall_left_wz);
+        }
+        
+        if(wall_bool_right == true)
+        {
+            wall_right_wz = wall_right.transform.position;
+            Debug.Log(wall_right_wz);
+        }
+    }
+
+
+    void xiao_hui()//销毁墙
     {   if(wall_bool == true)
         {
             if (zhu_jue_wz.x >= 50)
             {
-                GameObject.Instantiate(wall_left, new Vector3(-wall_juli + zhu_jue_wz.x,0,0),Quaternion.identity);
+                GameObject.Destroy(wall_right);
                 wall_bool = false;
+                wall_bool_right = false;
             }
             if (zhu_jue_wz.x <= -50)
             {
-                GameObject.Instantiate(wall_right, new Vector3(wall_juli + zhu_jue_wz.x, 0, 0), Quaternion.identity);
+                GameObject.Destroy(wall_left);
                 wall_bool = false;
+                wall_bool_left = false;
             }
-            
         }
     }
 
@@ -55,13 +76,16 @@ public class air_wall : MonoBehaviour {
     {
         if(wall_bool == false)
         {
+
             if (zhu_jue_wz.x - wall_left_wz.x >= wall_juli)
             {
                 wall_left_wz.x = zhu_jue_wz.x - 80f;
+                wall_left.transform.position = new Vector3(wall_left_wz.x, 0, 0);
             }
-            if (zhu_jue_wz.x - wall_right_wz.x <= wall_juli)
+            if (zhu_jue_wz.x - wall_right_wz.x <= -wall_juli)
             {
                 wall_right_wz.x = zhu_jue_wz.x + 80f;
+                wall_right.transform.position = new Vector3(wall_right_wz.x, 0, 0);
             }
         }  
     }
