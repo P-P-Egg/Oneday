@@ -9,16 +9,20 @@ public class air_wall : MonoBehaviour {
     public GameObject wall_left;
     public GameObject wall_right;
 
+    public GameObject moon;
+
+
     private Vector3 zhu_jue_wz;//主角位置
     private Vector3 wall_left_wz; //墙位置
     private Vector3 wall_right_wz;
+    private Vector3 moon_wz;//月亮的位置
 
 
     private float wall_juli = 80;
 
-    public bool wall_bool = true;
-    public bool wall_bool_left = true;
-    public bool wall_bool_right = true;
+    private bool wall_bool = true;
+    private bool wall_bool_left = true;
+    private bool wall_bool_right = true;
 
     void Start () {
 
@@ -30,6 +34,9 @@ public class air_wall : MonoBehaviour {
         //取得主角的位置
         zhu_jue_wz = zhu_jue.transform.position;
         //Debug.Log(zhu_jue_wz);
+
+        //月亮
+        moon_gensui();
 
         //取得墙位置
         wall_wz();
@@ -88,6 +95,13 @@ public class air_wall : MonoBehaviour {
                 wall_right.transform.position = new Vector3(wall_right_wz.x, 0, 0);
             }
         }  
+    }
+
+    void moon_gensui() //月亮跟随
+    {
+        moon_wz = new Vector3(zhu_jue_wz.x - 10f, 8, 0);
+        moon.transform.position = moon_wz;
+
     }
    
 }
