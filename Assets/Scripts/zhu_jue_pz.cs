@@ -14,11 +14,15 @@ public class paihang
     public int fenshu1;
     public int fenshu2;
     public int fenshu3;
+    public int houtiao;
+    public int houtiaofenshu;
     public List<int> Ints = new List<int>()
         {
             1,
             2,
-            3
+            3,
+            4,
+            5
         };
 }
 
@@ -344,21 +348,26 @@ public class zhu_jue_pz : MonoBehaviour {
     }
     public void paihangbangshuju()//排行榜
     {
-        if (ju_li2 > a1.fenshu1)
+        if (ju_li2 > a1.fenshu1&&ju_li2>=0)
         { 
             a1.fenshu3 = a1.fenshu2;
             a1.fenshu2 = a1.fenshu1;
             a1.fenshu1 = ju_li2;
 
         }
-        else if (ju_li2 > a1.fenshu2 && ju_li2 <= a1.fenshu1)
+        else if (ju_li2 > a1.fenshu2 && ju_li2 <= a1.fenshu1&&ju_li2>=0)
         {
             a1.fenshu3 = a1.fenshu2;
             a1.fenshu2 = ju_li2;
         }
-        else if (ju_li2 > a1.fenshu3 && ju_li2 <= a1.fenshu2)
+        else if (ju_li2 > a1.fenshu3 && ju_li2 <= a1.fenshu2&&ju_li2>=0)
         {
             a1.fenshu3 = ju_li2;
+        }
+        if (ju_li2 < 0 && ju_li2 < a1.houtiaofenshu)
+        {
+            a1.houtiao = 1;
+            a1.houtiaofenshu = ju_li2;
         }
     }
     public void cundang()
@@ -374,6 +383,8 @@ public class zhu_jue_pz : MonoBehaviour {
             a1.fenshu1 = 0;
             a1.fenshu2 = 0;
             a1.fenshu3 = 0;
+            a1.houtiao = 0;
+            a1.houtiaofenshu = 0;
         }
         else
         {

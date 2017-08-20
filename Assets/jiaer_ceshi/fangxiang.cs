@@ -3,13 +3,21 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class fangxiang : MonoBehaviour {
-    public static Vector3 position2;
-    public Vector3 fangxiang1;
-    private void OnMouseExit()
+    public Vector3 position1;
+    public Vector3 position2;
+    Vector3  fxld()
     {
-        position2 = Input.mousePosition;
-        Debug.Log("2");
-        fangxiang1 = position2 - yuanquanceshi.position1;
+        if (Input.GetMouseButtonDown(0))
+        {
+            position1 = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        }
+        if (Input.GetMouseButton(0))
+        {
+            position2 = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        }
+        while ((position2 - position1).magnitude == 14.1F)
+        {
+            Vector3 lidufx = (position2 - position1).normalized;
+        }
     }
-    
 }
