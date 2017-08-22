@@ -132,7 +132,7 @@ public class zhu_jue_pz : MonoBehaviour {
     {
         zhu_jue_wz = transform.position;//即时得到了主角的位置
         //Debug.Log(zhu_jue_wz);
-        ju_li2 = Convert.ToInt32(zhu_jue_wz.x + 24f);
+        ju_li2 = Convert.ToInt32(zhu_jue_wz.x + 8.4f);
         lu_text.text = ju_li2 + " m";
         //if (jin_yong == true && qian_xing == 1)
         //{
