@@ -16,6 +16,7 @@ public class yuanquanceshi : MonoBehaviour {
         {
             position1 = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             Instantiate(prefab, position1, Quaternion.identity);
+            Debug.Log(position1);
         }
     }
 
