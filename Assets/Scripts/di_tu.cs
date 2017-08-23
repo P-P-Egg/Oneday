@@ -215,7 +215,7 @@ public class di_tu : MonoBehaviour
         
         if (yi_ci_qjshan == 1)
         {
-            GameObject go = GameObject.Instantiate(qj_shan_sz[0], new Vector3(-7.87f, -10f, 0), Quaternion.identity) as GameObject;
+            GameObject go = GameObject.Instantiate(qj_shan_sz[0], new Vector3(-15.4f, -10f, 0), Quaternion.identity) as GameObject;
             qj_shan.Add(go);
             yi_ci_qjshan = 0;
         }
