@@ -306,9 +306,9 @@ public class zhu_jue_pz : MonoBehaviour {
                 jieshu_text.text = "Game over, moved " + ju_li2 + " m";
                 paihangbangshuju();
                 cundang();
-                Debug.Log(a1.fenshu1);
-                Debug.Log(a1.fenshu2);
-                Debug.Log(a1.fenshu3);
+                //Debug.Log(a1.fenshu1);
+                //Debug.Log(a1.fenshu2);
+                //Debug.Log(a1.fenshu3);
                 //int go = ju_li;
                 //PlayerPrefs.SetInt("juli", go);
                 chong_button.gameObject.SetActive(true);
