@@ -13,13 +13,17 @@ public class shubaoceshi : MonoBehaviour
 
     public Vector3 xiang_liang = new Vector3();
     public Vector3 xiang_liang2;//转化后的向量
+    public float grivate;
 
 
 
     public float vector3_ju_li;
     public float speed;
 
-
+    void Start()
+    {
+        grivate = GetComponent<Rigidbody2D>().gravityScale;
+    }
     void Update()//如果用FixedUpdate会导致偶尔操作不触发
     {
         lidu();
@@ -63,10 +67,16 @@ public class shubaoceshi : MonoBehaviour
 
 
 
-        if (Time.time <= endtime+0.1 )
+        if (Time.time < endtime+0.1 )
         {            
             force1 = xiang_liang2 * speed * force;
+            //GetComponent<Rigidbody2D>().gravityScale = 0;//取消重力
             GetComponent<Rigidbody2D>().AddForce(force1);
+        }
+        if (Time.time == endtime + 0.1)
+        {
+            
+            GetComponent<Rigidbody2D>().gravityScale = 10;//重启重力
         }
     }
 

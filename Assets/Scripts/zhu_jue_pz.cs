@@ -106,12 +106,12 @@ public class zhu_jue_pz : MonoBehaviour {
 
     // Update is called once per frame
     void Update () {
-        //xu_li_slider.value = (timer * 10f) / xu;
+        xu_li_slider.value = (timer * 10f) / xu;
 
-        //if (Input.GetMouseButtonUp(0))
-        //{
-        //    qian_xing = 0;
-        //}
+        if (Input.GetMouseButtonUp(0))
+        {
+          qian_xing = 0;
+        }
 
 
 
@@ -138,10 +138,10 @@ public class zhu_jue_pz : MonoBehaviour {
         //Debug.Log(zhu_jue_wz);
         ju_li2 = Convert.ToInt32(zhu_jue_wz.x + 24f);
         lu_text.text = ju_li2 + " m";
-        //if (jin_yong == true && qian_xing == 1)
-        //{
-        //    bao_chi();
-        //}
+        if (jin_yong == true && qian_xing == 1)
+        {
+            bao_chi();
+        }
         //bao_chi();
 
         //根据移动的距离提高主角移动速度
