@@ -83,13 +83,12 @@ public class air_wall : MonoBehaviour {
     {
         if(wall_bool == false)
         {
-
-            if (zhu_jue_wz.x - wall_left_wz.x >= wall_juli)
+            if (zhu_jue_wz.x - wall_left_wz.x >= wall_juli && wall_bool_right == false)
             {
                 wall_left_wz.x = zhu_jue_wz.x - 80f;
                 wall_left.transform.position = new Vector3(wall_left_wz.x, 0, 0);
             }
-            if (zhu_jue_wz.x - wall_right_wz.x <= -wall_juli)
+            if (zhu_jue_wz.x - wall_right_wz.x <= -wall_juli && wall_bool_left == false)
             {
                 wall_right_wz.x = zhu_jue_wz.x + 80f;
                 wall_right.transform.position = new Vector3(wall_right_wz.x, 0, 0);

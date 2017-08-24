@@ -20,6 +20,8 @@ public class shubaoceshi : MonoBehaviour
     public bool ce_shi = true;
 
     private float time1 = 0;//取消重力的计时器
+    private int tiao_panding = 0; //判定二段跳
+
 
     void Start()
     {
@@ -27,7 +29,8 @@ public class shubaoceshi : MonoBehaviour
     }
     void Update()//如果用FixedUpdate会导致偶尔操作不触发
     {
-        lidu();
+        tiao_yue();
+        //lidu();
     }
 
 
@@ -45,6 +48,7 @@ public class shubaoceshi : MonoBehaviour
         }
         if (Input.GetMouseButtonUp(0))
         {
+            tiao_panding += 1;
             endtime = Time.time;
 
             end = Input.mousePosition;
@@ -56,16 +60,14 @@ public class shubaoceshi : MonoBehaviour
             vector3_ju_li = Vector3.Distance(end, begin);//取得两点距离
 
             speed = (vector3_ju_li / (endtime - begintime)) / 10;//取得速度
-            if (speed <= 300)
+            if (speed <= 250)
             {
-                speed = 300;
+                speed = 250;
             }
             if (speed >= 520)
             {
                 speed = 520;
             }
-
-
 
 
             /*GetComponent<Rigidbody2D>().gravityScale = 0;*///取消重力
@@ -77,7 +79,7 @@ public class shubaoceshi : MonoBehaviour
         {
             force1 = xiang_liang2 * speed * force;
             GetComponent<Rigidbody2D>().gravityScale = 0;//取消重力
-            GetComponent<Rigidbody2D>().AddForce(force1/2);
+            GetComponent<Rigidbody2D>().AddForce(force1 / 2);
             ce_shi = true;
 
         }
@@ -90,5 +92,27 @@ public class shubaoceshi : MonoBehaviour
         }
     }
 
-    
+    //void OnCollisionEnter2D(Collision2D coll)
+    //{
+    //    if (coll.gameObject.tag == "Road")
+    //    {
+
+    //    }
+
+    //}
+    void OnCollisionExit2D(Collision2D coll)
+    {
+        if (coll.gameObject.tag == "Road")
+        {
+            tiao_panding = 0;
+        }
+    }
+
+    void tiao_yue () // 跳跃判定的方法
+    {
+        if(tiao_panding < 2)
+        {
+            lidu();
+        }
+    }
 }
