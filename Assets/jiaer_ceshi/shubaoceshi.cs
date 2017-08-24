@@ -30,6 +30,7 @@ public class shubaoceshi : MonoBehaviour
     void Update()//如果用FixedUpdate会导致偶尔操作不触发
     {
         tiao_yue();
+   
         //lidu();
     }
 
@@ -48,6 +49,7 @@ public class shubaoceshi : MonoBehaviour
         }
         if (Input.GetMouseButtonUp(0))
         {
+            doubi.haha = true;
             tiao_panding += 1;
             endtime = Time.time;
 
@@ -79,18 +81,18 @@ public class shubaoceshi : MonoBehaviour
         if (Time.time < endtime + 0.2)
         {
             force1 = xiang_liang2 * speed * force;
-            GetComponent<Rigidbody2D>().gravityScale = 0;//取消重力
-            GetComponent<Rigidbody2D>().AddForce(force1);
+            /*GetComponent<Rigidbody2D>().gravityScale = 0;*///取消重力
+            GetComponent<Rigidbody2D>().AddForce(force1*3);
 
 
         }
 
-        if (Time.time >= endtime + 0.2 || Time.time <= endtime + 1)
-        {
+        //if (Time.time >= endtime + 0.2 || Time.time <= endtime + 1)
+        //{
 
-            GetComponent<Rigidbody2D>().gravityScale = 10;//重启重力
+        //    GetComponent<Rigidbody2D>().gravityScale = 10;//重启重力
 
-        }
+        //}
     }
 
     //void OnCollisionEnter2D(Collision2D coll)
@@ -106,6 +108,7 @@ public class shubaoceshi : MonoBehaviour
         if (coll.gameObject.tag == "Road")
         {
             tiao_panding = 0;
+            doubi.haha = false;
         }
     }
 
@@ -114,6 +117,7 @@ public class shubaoceshi : MonoBehaviour
         if(tiao_panding < 2)
         {
             lidu();
+            doubi.haha = true;
         }
     }
 }

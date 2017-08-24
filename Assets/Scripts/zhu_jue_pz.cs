@@ -114,16 +114,21 @@ public class zhu_jue_pz : MonoBehaviour {
           qian_xing = 0;
         }
 
+        
 
 
         si_wang();
+
+        dong_hua.SetFloat("Blend", GetComponent<Rigidbody2D>().velocity.y);
+        dong_hua.SetBool("bbc", doubi.haha);
+        
 
         //xu_li();
 
 
         //tiao();
 
-        
+
         //jian_tou_zhixiang();
     }
 
@@ -143,6 +148,10 @@ public class zhu_jue_pz : MonoBehaviour {
         {
             bao_chi();
         }
+
+        
+
+
         //bao_chi();
 
         //根据移动的距离提高主角移动速度
