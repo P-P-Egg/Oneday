@@ -78,6 +78,7 @@ public class zhu_jue_pz : MonoBehaviour {
     private int yi_ci = 1;
     private static int[] paihang=new int[] { 0, 0, 0 };//排行榜的个数
     public paihang a1 = new paihang();
+    public float qsu_du = 200;
     // Use this for initialization
 
     private void Awake()
@@ -210,7 +211,7 @@ public class zhu_jue_pz : MonoBehaviour {
 
     void qian_jing()//推动主角前进的力
     {
-        rigidbody2D.AddForce(new Vector2(1, 0));//修改成负数了 20170805 我又改正数了
+        rigidbody2D.AddForce(new Vector2(1, 0)*qsu_du);//修改成负数了 20170805 我又改正数了
     }
     
     void xu_li()//弹跳蓄力

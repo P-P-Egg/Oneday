@@ -59,7 +59,7 @@ public class shubaoceshi : MonoBehaviour
 
             vector3_ju_li = Vector3.Distance(end, begin);//取得两点距离
 
-            speed = (vector3_ju_li / (endtime - begintime)) / 10;//取得速度
+            speed = vector3_ju_li/2;//取得速度
             if (speed <= 250)
             {
                 speed = 250;
