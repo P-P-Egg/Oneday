@@ -16,8 +16,8 @@ public class shubaoceshi : MonoBehaviour
     public float grivate;
 
     public float vector3_ju_li;
-    public float speed;
-    public bool ce_shi = true;
+    private float speed;
+    //public bool ce_shi = true;
 
     private float time1 = 0;//取消重力的计时器
     private int tiao_panding = 0; //判定二段跳
@@ -59,15 +59,16 @@ public class shubaoceshi : MonoBehaviour
 
             vector3_ju_li = Vector3.Distance(end, begin);//取得两点距离
 
-            speed = vector3_ju_li/2;//取得速度
-            if (speed <= 250)
+            speed = vector3_ju_li;//取得速度
+            if(speed <= 150)
             {
-                speed = 250;
+                speed = 150;
             }
-            if (speed >= 520)
+            if(speed >= 1500)
             {
-                speed = 520;
+                speed = 1500;
             }
+
 
 
             /*GetComponent<Rigidbody2D>().gravityScale = 0;*///取消重力
@@ -79,8 +80,8 @@ public class shubaoceshi : MonoBehaviour
         {
             force1 = xiang_liang2 * speed * force;
             GetComponent<Rigidbody2D>().gravityScale = 0;//取消重力
-            GetComponent<Rigidbody2D>().AddForce(force1 / 2);
-            ce_shi = true;
+            GetComponent<Rigidbody2D>().AddForce(force1);
+
 
         }
 
@@ -88,7 +89,7 @@ public class shubaoceshi : MonoBehaviour
         {
 
             GetComponent<Rigidbody2D>().gravityScale = 10;//重启重力
-            ce_shi = false;
+
         }
     }
 
