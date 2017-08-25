@@ -116,11 +116,10 @@ public class zhu_jue_pz : MonoBehaviour {
 
         
 
-
         si_wang();
 
-        dong_hua.SetFloat("Blend", GetComponent<Rigidbody2D>().velocity.y);
-        dong_hua.SetBool("bbc", doubi.haha);
+        //dong_hua.SetFloat("Blend", GetComponent<Rigidbody2D>().velocity.y);
+        //dong_hua.SetBool("bbc", doubi.haha);
         
 
         //xu_li();
