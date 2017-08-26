@@ -11,6 +11,9 @@ public class shubaoceshi : MonoBehaviour
     public float force = 1;
     public Vector3 force1 = new Vector3();
 
+    public AudioClip tiao_yinxiao; //跳起后的音效
+
+
     public Vector3 xiang_liang = new Vector3();
     public Vector3 xiang_liang2;//转化后的向量
     public float grivate;
@@ -26,6 +29,7 @@ public class shubaoceshi : MonoBehaviour
     private Animator tiao_dong_hua;
     public bool dong_hua_bool = false;
 
+    public static bool jie_shu = true;
 
     void Start()
     {
@@ -34,7 +38,11 @@ public class shubaoceshi : MonoBehaviour
     }
     void Update()//如果用FixedUpdate会导致偶尔操作不触发
     {
-        tiao_yue();
+        if(jie_shu == true)//判断游戏是否失败
+        {
+            tiao_yue();
+        }
+        
    
         //lidu();
     }
@@ -57,8 +65,11 @@ public class shubaoceshi : MonoBehaviour
         {
             //doubi.haha = true;
 
-            
-            tiao_panding += 1;
+            if (vector3_ju_li >= 5) //二段跳的判断，如果滑动屏幕少于5 则不计算
+            {
+                tiao_panding += 1;
+            }
+
             endtime = Time.time;
 
             end = Input.mousePosition;
@@ -70,9 +81,9 @@ public class shubaoceshi : MonoBehaviour
             vector3_ju_li = Vector3.Distance(end, begin);//取得两点距离
 
             speed = vector3_ju_li;//取得速度
-            if(speed <= 500)
+            if(speed <= 400)
             {
-                speed = 500;
+                speed = 400;
             }
             if(speed >= 880)
             {
@@ -88,10 +99,15 @@ public class shubaoceshi : MonoBehaviour
 
         if (Time.time < endtime + 0.2)
         {
-            dong_hua_bool = true;
             force1 = xiang_liang2 * speed * force;
             /*GetComponent<Rigidbody2D>().gravityScale = 0;*///取消重力
-            GetComponent<Rigidbody2D>().AddForce(force1);
+            if(vector3_ju_li >= 5) //如果滑动屏幕少于5 则不施加力
+            {
+                AudioSource.PlayClipAtPoint(tiao_yinxiao, transform.position);
+                dong_hua_bool = true;
+                GetComponent<Rigidbody2D>().AddForce(force1);
+            }
+            
 
 
         }
