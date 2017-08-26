@@ -41,11 +41,13 @@ public class chong : MonoBehaviour {
     public void chong_zhi()//开始游戏，重新开始游戏
     {
         SceneManager.LoadScene("Main");
+        shubaoceshi.jie_shu = true;
     }
 
     public void cai_dan()
     {
         SceneManager.LoadScene("jie_mian");
+        shubaoceshi.jie_shu = true;
     }
 
     public void zan_ting() //暂停游戏

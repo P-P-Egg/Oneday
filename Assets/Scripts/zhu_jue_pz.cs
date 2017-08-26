@@ -318,6 +318,7 @@ public class zhu_jue_pz : MonoBehaviour {
                 jieshu_text.text = "Game over, moved " + ju_li2 + " m";
                 paihangbangshuju();
                 cundang();
+                shubaoceshi.jie_shu = false;
                 //Debug.Log(a1.fenshu1);
                 //Debug.Log(a1.fenshu2);
                 //Debug.Log(a1.fenshu3);
