@@ -91,44 +91,51 @@ public class shubaoceshi : MonoBehaviour
             //    speed = 880;
             //}        
             /*GetComponent<Rigidbody2D>().gravityScale = 0;*///取消重力
-            tiao_panding++;
-        }
-
-        if(Time.time == endtime)
-        {       
-           if (tiao_panding == 2)
-           {
-                GetComponent<Rigidbody2D>().gravityScale = 0;
-                GetComponent<Rigidbody2D>().velocity = new Vector2(1, 0);
-           }
-        }
-
-        if (Time.time < endtime + 0.2&&Time.time>endtime)
-        {
-            dong_hua_bool = true;
-            if(tiao_panding ==1)
+            if(vector3_ju_li >= 5)
             {
-                force1 = xiang_liang2 * speed * force*1.5f;
-                GetComponent<Rigidbody2D>().AddForce(force1);
+                tiao_panding++;
             }
+            
+        }
+
+        if (Time.time == endtime)
+        {
             if (tiao_panding == 2)
             {
+                GetComponent<Rigidbody2D>().gravityScale = 0;
+                GetComponent<Rigidbody2D>().velocity = new Vector2(1, 0);
+            }
+        }
+
+        if (Time.time < endtime + 0.2 && Time.time > endtime)
+        {
+            
+            if (tiao_panding == 1 && vector3_ju_li >= 5)
+            { 
+                AudioSource.PlayClipAtPoint(tiao_yinxiao, transform.position); //播放声音
+                force1 = xiang_liang2 * speed * force*1.5f;
+                GetComponent<Rigidbody2D>().AddForce(force1);
+                dong_hua_bool = true; //动画播放判定
+            }
+            if (tiao_panding == 2 && vector3_ju_li >= 5)
+            {
+                AudioSource.PlayClipAtPoint(tiao_yinxiao, transform.position);//播放声音
                 force1 = xiang_liang2 * speed * force*0.75f;
                 GetComponent<Rigidbody2D>().AddForce(force1);
+                dong_hua_bool = true; //动画播放判定
             }
             /*GetComponent<Rigidbody2D>().gravityScale = 0;*///取消重力
-            if(vector3_ju_li >= 5) //如果滑动屏幕少于5 则不施加力
-            {
-                AudioSource.PlayClipAtPoint(tiao_yinxiao, transform.position);
-                dong_hua_bool = true;
-                GetComponent<Rigidbody2D>().AddForce(force1);
-            }
+            //if(vector3_ju_li >= 5) //如果滑动屏幕少于5 则不施加力
+            //{
+            //    AudioSource.PlayClipAtPoint(tiao_yinxiao, transform.position);
+            //    dong_hua_bool = true;
+            //    GetComponent<Rigidbody2D>().AddForce(force1);
+            //}
             
         }
         if (Time.time >= endtime + 0.2)
         {
-            GetComponent<Rigidbody2D>().gravityScale = 10;
-            
+            GetComponent<Rigidbody2D>().gravityScale = 10;    
         }
         
         //if (Time.time >= endtime + 0.2 || Time.time <= endtime + 1)
@@ -151,7 +158,7 @@ public class shubaoceshi : MonoBehaviour
 
     void tiao_yue () // 跳跃判定的方法
     {
-        if(tiao_panding<2)
+        if(tiao_panding < 3)
         {
             lidu();
            //doubi.haha = true;
