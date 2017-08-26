@@ -70,17 +70,15 @@ public class shubaoceshi : MonoBehaviour
             vector3_ju_li = Vector3.Distance(end, begin);//取得两点距离
 
             speed = vector3_ju_li;//取得速度
-            if(speed <= 500)
+
+            if (speed <= 500)
             {
                 speed = 500;
             }
-            if(speed >= 880)
+            if (speed >= 880)
             {
                 speed = 880;
-            }
-
-
-
+            }        
             /*GetComponent<Rigidbody2D>().gravityScale = 0;*///取消重力
         }
 
@@ -89,11 +87,17 @@ public class shubaoceshi : MonoBehaviour
         if (Time.time < endtime + 0.2)
         {
             dong_hua_bool = true;
-            force1 = xiang_liang2 * speed * force;
-            /*GetComponent<Rigidbody2D>().gravityScale = 0;*///取消重力
-            GetComponent<Rigidbody2D>().AddForce(force1);
-
-
+            if(tiao_panding ==0)
+            {
+                force1 = xiang_liang2 * speed * force*1.2f;
+                GetComponent<Rigidbody2D>().AddForce(force1);
+            }
+            if (tiao_panding == 1)
+            {
+                force1 = xiang_liang2 * speed * force*0.6f;
+                GetComponent<Rigidbody2D>().AddForce(force1);
+            }
+            
         }
 
         //if (Time.time >= endtime + 0.2 || Time.time <= endtime + 1)
@@ -125,11 +129,10 @@ public class shubaoceshi : MonoBehaviour
 
     void tiao_yue () // 跳跃判定的方法
     {
-        if(tiao_panding < 2)
+        if(tiao_panding<2)
         {
             lidu();
-
-            //doubi.haha = true;
+           //doubi.haha = true;
         }
     }
 
