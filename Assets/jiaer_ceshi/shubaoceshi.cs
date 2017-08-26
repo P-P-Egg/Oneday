@@ -23,13 +23,14 @@ public class shubaoceshi : MonoBehaviour
     //public bool ce_shi = true;
 
     private float time1 = 0;//取消重力的计时器
-    private int tiao_panding = 0; //判定二段跳
+    public int tiao_panding = 0; //判定二段跳
     /*    private Animator anim;*///动画
 
     private Animator tiao_dong_hua;
     public bool dong_hua_bool = false;
 
     public static bool jie_shu = true;
+
 
     void Start()
     {
@@ -43,7 +44,6 @@ public class shubaoceshi : MonoBehaviour
             tiao_yue();
         }
         
-   
         //lidu();
     }
 
@@ -65,10 +65,10 @@ public class shubaoceshi : MonoBehaviour
         {
             //doubi.haha = true;
 
-            if (vector3_ju_li >= 5) //二段跳的判断，如果滑动屏幕少于5 则不计算
-            {
-                tiao_panding += 1;
-            }
+            //if (vector3_ju_li >= 5) //二段跳的判断，如果滑动屏幕少于5 则不计算
+            //{
+            //    tiao_panding += 1;
+            //}
 
             endtime = Time.time;
 
@@ -81,41 +81,41 @@ public class shubaoceshi : MonoBehaviour
             vector3_ju_li = Vector3.Distance(end, begin);//取得两点距离
 
             speed = vector3_ju_li;//取得速度
-<<<<<<< HEAD
 
-            if (speed <= 500)
-=======
-            if(speed <= 400)
->>>>>>> 07c318f2b2f0a4008a103e548e15e6b5ae26df29
-            {
-                speed = 400;
-            }
-            if (speed >= 880)
-            {
-                speed = 880;
-            }        
+            //if(speed <= 400)
+            //{
+            //   speed = 400;
+            //}
+            //if (speed >= 880)
+            //{
+            //    speed = 880;
+            //}        
             /*GetComponent<Rigidbody2D>().gravityScale = 0;*///取消重力
+            tiao_panding++;
         }
 
+        if(Time.time == endtime)
+        {       
+           if (tiao_panding == 2)
+           {
+                GetComponent<Rigidbody2D>().gravityScale = 0;
+                GetComponent<Rigidbody2D>().velocity = new Vector2(1, 0);
+           }
+        }
 
-
-        if (Time.time < endtime + 0.2)
+        if (Time.time < endtime + 0.2&&Time.time>endtime)
         {
-<<<<<<< HEAD
             dong_hua_bool = true;
-            if(tiao_panding ==0)
+            if(tiao_panding ==1)
             {
-                force1 = xiang_liang2 * speed * force*1.2f;
+                force1 = xiang_liang2 * speed * force*1.5f;
                 GetComponent<Rigidbody2D>().AddForce(force1);
             }
-            if (tiao_panding == 1)
+            if (tiao_panding == 2)
             {
-                force1 = xiang_liang2 * speed * force*0.6f;
+                force1 = xiang_liang2 * speed * force*0.75f;
                 GetComponent<Rigidbody2D>().AddForce(force1);
             }
-            
-=======
-            force1 = xiang_liang2 * speed * force;
             /*GetComponent<Rigidbody2D>().gravityScale = 0;*///取消重力
             if(vector3_ju_li >= 5) //如果滑动屏幕少于5 则不施加力
             {
@@ -124,11 +124,13 @@ public class shubaoceshi : MonoBehaviour
                 GetComponent<Rigidbody2D>().AddForce(force1);
             }
             
-
-
->>>>>>> 07c318f2b2f0a4008a103e548e15e6b5ae26df29
         }
-
+        if (Time.time >= endtime + 0.2)
+        {
+            GetComponent<Rigidbody2D>().gravityScale = 10;
+            
+        }
+        
         //if (Time.time >= endtime + 0.2 || Time.time <= endtime + 1)
         //{
 
@@ -142,18 +144,9 @@ public class shubaoceshi : MonoBehaviour
         if (coll.gameObject.tag == "Road")
         {
             dong_hua_bool = false;
-        }
-
-    }
-    void OnCollisionExit2D(Collision2D coll)
-    {
-        if (coll.gameObject.tag == "Road")
-        {
-            
             tiao_panding = 0;
-
-            //doubi.haha = false;
         }
+
     }
 
     void tiao_yue () // 跳跃判定的方法
