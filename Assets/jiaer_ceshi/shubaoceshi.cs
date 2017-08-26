@@ -133,7 +133,7 @@ public class shubaoceshi : MonoBehaviour
         }
     }
 
-    void tiao_donghua()
+    void tiao_donghua() //动画控制
     {
         tiao_dong_hua.SetBool("dh_bool", dong_hua_bool);
         tiao_dong_hua.SetFloat("vSpeed", GetComponent<Rigidbody2D>().velocity.y);

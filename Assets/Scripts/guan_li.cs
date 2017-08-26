@@ -59,5 +59,10 @@ public class guan_li : MonoBehaviour {
         SceneManager.LoadScene("zhi_zuo");
     }
 
+    public void Onjiao_cheng()
+    {
+        SceneManager.LoadScene("jiao_cheng");
+    }
+
 
 }
