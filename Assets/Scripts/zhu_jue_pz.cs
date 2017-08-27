@@ -219,11 +219,21 @@ public class zhu_jue_pz : MonoBehaviour {
 
     void qian_jing()//推动主角前进的力
     {
-        
-            rigidbody2D.AddForce(new Vector2(1, 0)*qsu_du);//修改成负数了 20170805 我又改正数了
-        
+        if (ju_li2 <= 150)
+        {
+            rigidbody2D.AddForce(new Vector2(1, 0) * qsu_du * 1.0f);//修改成负数了 20170805 我又改正数了
+        }
+        if(ju_li2>150&&ju_li2<=500)
+        {
+            rigidbody2D.AddForce(new Vector2(1, 0) * qsu_du * 2.0f);
+        }
+        if (ju_li2 > 500)
+        {
+            rigidbody2D.AddForce(new Vector2(1, 0) * qsu_du * 4.0f);
+        }
+    }  
        
-    }
+    
     
     void xu_li()//弹跳蓄力
     {

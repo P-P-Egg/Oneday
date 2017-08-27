@@ -85,14 +85,14 @@ public class shubaoceshi : MonoBehaviour
 
             speed = vector3_ju_li;//取得速度
 
-            //if(speed <= 400)
-            //{
-            //   speed = 400;
-            //}
-            //if (speed >= 880)
-            //{
-            //    speed = 880;
-            //}        
+            if(speed <= 250)
+            {
+               speed = 250;
+            }
+            if (speed >= 800)
+            {
+                speed = 800;
+            }        
             /*GetComponent<Rigidbody2D>().gravityScale = 0;*///取消重力
             if (vector3_ju_li >= 5)
             {
@@ -104,6 +104,10 @@ public class shubaoceshi : MonoBehaviour
 
         if (Time.time == endtime)
         {
+            if (tiao_panding == 1)
+            {
+                GetComponent<Rigidbody2D>().gravityScale = 0;
+            }
             if (tiao_panding == 2)
             {
                 GetComponent<Rigidbody2D>().gravityScale = 0;
@@ -128,13 +132,14 @@ public class shubaoceshi : MonoBehaviour
                 GetComponent<Rigidbody2D>().AddForce(force1);
                 dong_hua_bool = true; //动画播放判定
             }
-            /*GetComponent<Rigidbody2D>().gravityScale = 0;*///取消重力
-                                                             //if(vector3_ju_li >= 5) //如果滑动屏幕少于5 则不施加力
-                                                             //{
-                                                             //    AudioSource.PlayClipAtPoint(tiao_yinxiao, transform.position);
-                                                             //    dong_hua_bool = true;
-                                                             //    GetComponent<Rigidbody2D>().AddForce(force1);
-                                                             //}
+            /*GetComponent<Rigidbody2D>().gravityScale = 0;*/
+            //取消重力
+            //if(vector3_ju_li >= 5) //如果滑动屏幕少于5 则不施加力
+            //{
+            //    AudioSource.PlayClipAtPoint(tiao_yinxiao, transform.position);
+            //    dong_hua_bool = true;
+            //    GetComponent<Rigidbody2D>().AddForce(force1);
+            //}
 
         }
         if (Time.time >= endtime + 0.2)
