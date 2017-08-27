@@ -7,7 +7,7 @@ public class shubaoceshi : MonoBehaviour
     private Vector3 begin = new Vector3();
     private Vector3 end = new Vector3();
     public float begintime = new float();
-    public float endtime = new float();
+    public float endtime = 0;
     public float force = 1;
     public Vector3 force1 = new Vector3();
 
@@ -30,6 +30,7 @@ public class shubaoceshi : MonoBehaviour
     public bool dong_hua_bool = false;
 
     public static bool jie_shu = true;
+    private int canshu = 0;
 
 
     void Start()
@@ -56,12 +57,14 @@ public class shubaoceshi : MonoBehaviour
     }
     void lidu()
     {
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(0)&&Time.time>endtime+0.2)
         {
             begintime = Time.time;
             begin = Input.mousePosition;
+            canshu = 1;
+
         }
-        if (Input.GetMouseButtonUp(0))
+        if (Input.GetMouseButtonUp(0)&&canshu==1)
         {
             //doubi.haha = true;
 
@@ -91,11 +94,12 @@ public class shubaoceshi : MonoBehaviour
             //    speed = 880;
             //}        
             /*GetComponent<Rigidbody2D>().gravityScale = 0;*///取消重力
-            if(vector3_ju_li >= 5)
+            if (vector3_ju_li >= 5)
             {
                 tiao_panding++;
             }
-            
+            canshu = 0;
+
         }
 
         if (Time.time == endtime)
@@ -109,33 +113,33 @@ public class shubaoceshi : MonoBehaviour
 
         if (Time.time < endtime + 0.2 && Time.time > endtime)
         {
-            
+
             if (tiao_panding == 1 && vector3_ju_li >= 5)
-            { 
+            {
                 AudioSource.PlayClipAtPoint(tiao_yinxiao, transform.position); //播放声音
-                force1 = xiang_liang2 * speed * force*1.5f;
+                force1 = xiang_liang2 * speed * force * 1.5f;
                 GetComponent<Rigidbody2D>().AddForce(force1);
                 dong_hua_bool = true; //动画播放判定
             }
             if (tiao_panding == 2 && vector3_ju_li >= 5)
             {
                 AudioSource.PlayClipAtPoint(tiao_yinxiao, transform.position);//播放声音
-                force1 = xiang_liang2 * speed * force*0.75f;
+                force1 = xiang_liang2 * speed * force * 0.75f;
                 GetComponent<Rigidbody2D>().AddForce(force1);
                 dong_hua_bool = true; //动画播放判定
             }
             /*GetComponent<Rigidbody2D>().gravityScale = 0;*///取消重力
-            //if(vector3_ju_li >= 5) //如果滑动屏幕少于5 则不施加力
-            //{
-            //    AudioSource.PlayClipAtPoint(tiao_yinxiao, transform.position);
-            //    dong_hua_bool = true;
-            //    GetComponent<Rigidbody2D>().AddForce(force1);
-            //}
-            
+                                                             //if(vector3_ju_li >= 5) //如果滑动屏幕少于5 则不施加力
+                                                             //{
+                                                             //    AudioSource.PlayClipAtPoint(tiao_yinxiao, transform.position);
+                                                             //    dong_hua_bool = true;
+                                                             //    GetComponent<Rigidbody2D>().AddForce(force1);
+                                                             //}
+
         }
         if (Time.time >= endtime + 0.2)
         {
-            GetComponent<Rigidbody2D>().gravityScale = 10;    
+            GetComponent<Rigidbody2D>().gravityScale = 10;
         }
         
         //if (Time.time >= endtime + 0.2 || Time.time <= endtime + 1)
