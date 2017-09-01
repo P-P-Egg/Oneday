@@ -60,7 +60,7 @@ public class shubaoceshi : MonoBehaviour
         if (Input.GetMouseButtonDown(0)&&Time.time>endtime+0.2)
         {
             begintime = Time.time;
-            begin = Input.mousePosition;
+            begin = Camera.main.WorldToScreenPoint(Input.mousePosition);
             canshu = 1;
 
         }
@@ -75,7 +75,7 @@ public class shubaoceshi : MonoBehaviour
 
             endtime = Time.time;
 
-            end = Input.mousePosition;
+            end = Camera.main.WorldToScreenPoint(Input.mousePosition);
 
             xiang_liang = end - begin;//取得向量
 
